@@ -12,8 +12,6 @@ public class CameraScroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Screen.width);
-        Debug.Log(Input.mousePosition.x);
     }
 
     // Update is called once per frame

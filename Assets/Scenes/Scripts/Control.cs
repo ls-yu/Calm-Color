@@ -21,6 +21,9 @@ public class Control : MonoBehaviour
     private float g_low;
     private float g_high;
     private bool ended;
+    private bool hint_active = false;
+    private Vector3 mouse;
+    public Text hint;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,5 +79,21 @@ public class Control : MonoBehaviour
 
     public void Quit(){
         Application.Quit();
+    }
+
+    public void Hint(){
+        
+        if (!ended && !hint_active)
+        {
+            mouse = Input.mousePosition;
+            GameObject find = GameObject.FindGameObjectsWithTag("orb")[0];
+            //cam.transform.position = find.transform.position;
+            hint.text = "x:" + find.transform.localPosition.x + ", y:" + find.transform.localPosition.y;
+        }
+        else if (!ended && hint_active)
+        {
+            cam.transform.position = mouse;
+        }
+
     }
 }
